@@ -32,7 +32,7 @@ public class SearchFiles {
 				+ "[-repeat n] [-queries file] [-query string] [-raw] [-paging hitsPerPage] "
 				+ "\n\nSee http://lucene.apache.org/core/4_1_0/demo/ for details";
 		
-		if (args.length > 0 & ("-h".equals(args[0]) || "-help".equals(args[0]))) {
+		if (args.length == 0 || (args.length > 0 & ("-h".equals(args[0]) || "-help".equals(args[0])))) {
 			System.out.println(usage);
 			System.exit(0);
 		}
@@ -203,14 +203,14 @@ public class SearchFiles {
 					System.out.print("Press ");
 					
 					if (start - hitsPerPage >= 0) {
-						System.out.print("(p)revious page, ");
+						System.out.print("(p)revious page,");
 					}
 					
 					if (start + hitsPerPage < numTotalHits) {
-						System.out.print("(n)ext page");
+						System.out.print(" (n)ext page");
 					}
 					
-					System.out.println("(q)uit or enter number to jump to a page");
+					System.out.println(" (q)uit or enter number to jump to a page");
 					
 					String line = in.readLine();
 					if (line.length() == 0 || line.charAt(0) == 'q') {
